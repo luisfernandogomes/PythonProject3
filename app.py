@@ -165,7 +165,7 @@ def cadastrar_emprestimo():
         if not usuario:
             return jsonify({'error': 'Usuário não encontrado'}), 404
 
-        # Cadastrar empréstimo
+
         emprestimo = Emprestimos(
             data_emprestimo=data_emprestimo,
             data_de_devolucao=data_de_devolucao,
@@ -174,7 +174,7 @@ def cadastrar_emprestimo():
         )
         emprestimo.save()
 
-        # Atualiza status do livro para indisponível
+
         livro.status = False
         livro.save()
 
@@ -221,7 +221,7 @@ def atualizar_livro(id):
     titulo = request.form.get('titulo')
     autor = request.form.get('autor')
     resumo = request.form.get('resumo')
-    status = request.form.get('status')  # True ou False como string
+    status = request.form.get('status')
 
     if titulo:
         livro.titulo = titulo
